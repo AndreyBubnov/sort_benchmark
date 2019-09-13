@@ -21,7 +21,16 @@ def selection_sort(array):
     return array
 
 
+def insertion_sort(array):
+    for i in range(len(array)):
+        tmp = array[i]
+        j = i - 1
+        while j >= 0 and tmp < array[j]:
+            array[j+1], array[j] = array[j], array[j+1]
+            j -= 1
+    return(array)
+
 b = aw.fill_array_random(7)
-b = selection_sort(b)
+b = insertion_sort(b)
 for i in range(len(b)):
     print(b[i])
