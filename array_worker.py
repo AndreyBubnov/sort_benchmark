@@ -1,6 +1,11 @@
 import random
 
 
+def swap(array, i, j):
+    array[i], array[j] = array[j], array[i]
+    return array
+
+
 def fill_array_standart(array_len):
     array = []
     for i in range(array_len):
