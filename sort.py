@@ -42,7 +42,26 @@ def shaker_sort(array):
             if not swapped:
                 return array
 
+
+def quick_sort(array):
+    if len(array) <= 1:
+        return array
+    else:
+        i = aw.random.choice(array)
+        left = []
+        middle = []
+        right = []
+        for elem in array:
+            if elem < i:
+                left.append(elem)
+            elif elem > i:
+                right.append(elem)
+            else:
+                middle.append(elem)
+        return quick_sort(left) + middle + quick_sort(right)
+
+
 b = aw.fill_array_random(10)
-b = shaker_sort(b)
+b = quick_sort(b)
 for i in range(len(b)):
     print(b[i])
