@@ -28,9 +28,21 @@ def insertion_sort(array):
         while j >= 0 and tmp < array[j]:
             array[j+1], array[j] = array[j], array[j+1]
             j -= 1
-    return(array)
+    return array
 
-b = aw.fill_array_random(7)
-b = insertion_sort(b)
+
+def shaker_sort(array):
+    while True:
+        for i in (range(len(array) - 1), reversed(range(len(array) - 1))):
+            swapped = False
+            for j in i:
+                if array[j] > array[j+1]:
+                    array[j], array[j+1] = array[j+1], array[j]
+                    swapped = True
+            if not swapped:
+                return array
+
+b = aw.fill_array_random(10)
+b = shaker_sort(b)
 for i in range(len(b)):
     print(b[i])
