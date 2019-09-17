@@ -61,7 +61,28 @@ def quick_sort(array):
         return quick_sort(left) + middle + quick_sort(right)
 
 
+def heap_sort(array):
+    def heapify(array, heap_size, root_index):
+        largest = root_index
+        left_child = (2 * root_index) + 1
+        right_child = (2 * root_index) + 2
+        if left_child < heap_size and array[left_child] > array[largest]:
+            largest = left_child
+        if right_child < heap_size and array[right_child] > array[largest]:
+            largest = right_child
+        if largest != root_index:
+            aw.swap(array, root_index, largest)
+            heapify(array, heap_size, largest)
+    n = len(array)
+    for i in range(n, -1, -1):
+        heapify(array, n, i)
+    for i in range(n - 1, 0, -1):
+        aw.swap(array, i, 0)
+        heapify(array, i, 0)
+    return array
+
+
 b = aw.fill_array_random(10)
-b = quick_sort(b)
+b = heap_sort(b)
 for i in range(len(b)):
     print(b[i])
